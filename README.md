@@ -37,9 +37,9 @@ Here's a walkthrough of implemented user stories:
 
 Example of Parse Database User & Post Info:
 
-<img src='parseUser.gif' title='Parse Database User Info' width='' alt='Parse Database User Info'><br>
+<img src='parseUser.png' title='Parse Database User Info' width='' alt='Parse Database User Info'><br>
 
-<img src='parsePost.gif' title='Parse Database Post Info' width='' alt='Parse Database Post Info'><br>
+<img src='parsePost.png' title='Parse Database Post Info' width='' alt='Parse Database Post Info'><br>
 
 GIF created with [Kap](https://getkap.co).
 
