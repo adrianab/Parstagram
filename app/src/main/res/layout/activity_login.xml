@@ -9,6 +9,12 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".LoginActivity">
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/parstagram"
+        android:layout_marginTop="-100dp"/>
 
     <EditText
         android:id="@+id/etUsername"
@@ -29,12 +35,14 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
         android:text="Log in" />
 
     <Button
         android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
         android:text="Sign up" />
 
 </LinearLayout>

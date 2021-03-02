@@ -3,6 +3,8 @@ package com.example.parstagram;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         {
             goMainActivity();
         }
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.parstagram);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);

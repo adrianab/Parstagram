@@ -12,13 +12,16 @@ import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
 public class SignupActivity extends AppCompatActivity {
 
     public static final String TAG = "SignupActivity";
     private EditText etEmail;
+    private EditText etScreenName;
     private EditText etUsername;
     private EditText etPassword;
     private Button btnSignup;
@@ -29,6 +32,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         etEmail = findViewById(R.id.etEmail);
+        etScreenName = findViewById(R.id.etScreenName);
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnSignup = findViewById(R.id.btnSignup);
@@ -40,6 +44,7 @@ public class SignupActivity extends AppCompatActivity {
                 user.setEmail(etEmail.getText().toString());
                 user.setUsername(etUsername.getText().toString());
                 user.setPassword(etPassword.getText().toString());
+                user.put("screenname",etScreenName.getText().toString());
 
                 user.signUpInBackground(new SignUpCallback() {
                     public void done(ParseException e) {

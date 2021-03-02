@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="100dp"
+            android:layout_alignParentLeft="true">
+
+
+            <ImageView
+                android:id="@+id/ivProfilePicture"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_baseline_person_24"
+                tools:ignore="VectorDrawableCompat" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvScreenName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/cvFrame"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="Adriana Beltran"
+            android:layout_toRightOf="@+id/cvFrame" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvScreenName"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/cvFrame"
+            android:textSize="16sp"
+            android:text="\@adriana"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/cvFrame" />
+
+        <TextView
+            android:id="@+id/tvBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUsername"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/cvFrame"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="Student at FIU"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/cvFrame" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/cvFrame"
+            android:layout_marginBottom="-60dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:backgroundTint="@color/black"
+            android:text="logout" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#d6d4d1"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/btnLogout"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUserPosts"
+            android:layout_width="match_parent"
+            android:layout_height="496dp"
+            android:layout_below="@+id/btnLogout"
+            android:layout_marginTop="69dp" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
