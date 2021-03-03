@@ -34,6 +34,7 @@ import com.example.parstagram.PostsAdapter;
 import com.example.parstagram.R;
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
@@ -41,6 +42,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -62,10 +64,11 @@ public class ProfileFragment extends Fragment {
     PostsAdapter postsAdapter;
     Button btnLogout;
     ImageView ivProfilePicture;
-    TextView tvScreenName;
+    //TextView tvScreenName;
     TextView tvUserName;
-    TextView tvBio;
+    TextView tvJoined;
     RecyclerView rvUserPosts;
+    Post post;
 
     public ProfileFragment() {
     }
@@ -88,9 +91,9 @@ public class ProfileFragment extends Fragment {
 
         btnLogout = view.findViewById(R.id.btnLogOut);
         ivProfilePicture = view.findViewById(R.id.ivProfilePicture);
-        tvScreenName = view.findViewById(R.id.tvScreenName);
+        //tvScreenName = view.findViewById(R.id.tvScreenName);
         tvUserName = view.findViewById(R.id.tvUsername);
-        tvBio = view.findViewById(R.id.tvBio);
+        tvJoined = view.findViewById(R.id.tvJoined);
         rvUserPosts = view.findViewById(R.id.rvUserPosts);
 
         rvUserPosts.setAdapter(postsAdapter);
@@ -100,13 +103,29 @@ public class ProfileFragment extends Fragment {
 
         // tvScreenName.setText((user.get("screenname")).toString());
         //Log.i(TAG, "ScreenName:" + (String) user.get("screenname"));
-        tvScreenName.setText(parseUser.get("screenname"));
-        tvUserName.setText(parseUser.getUsername());
+        // String screenName = parseUser.getString("screenname").toString();
+        // tvScreenName.setText(parseUser.get("screenname").toString());
+        /*
+        if (parseUser.getString("screenname") != null) {
+            tvScreenName.setText(parseUser.getString("screenname"));
+        }
+        */
+        //tvScreenName.setText(post.getUser().getString("screenname"));
+        //tvScreenName.setText(parseUser.getUsername().toUpperCase());
+
+        tvUserName.setText("@" + parseUser.getUsername());
+
+
+        String pattern = "E, dd MMMM yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(parseUser.getCreatedAt());
+        tvJoined.setText(date);
+
 
         ParseFile userProfilePic = (ParseFile) parseUser.get(PROFILE_PICTURE);
         if(userProfilePic != null)
             Glide.with(this).load(userProfilePic.getUrl())
-                    .placeholder(R.drawable.ic_baseline_person_24)
+                    .placeholder(R.drawable.defaultavatar)
                     .into(ivProfilePicture);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
