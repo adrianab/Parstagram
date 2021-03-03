@@ -113,6 +113,13 @@ public class ComposeFragment extends Fragment {
             }
         });
 
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userLogout();
+            }
+        });
+
     }
 
     private void launchCamera() {
@@ -186,5 +193,27 @@ public class ComposeFragment extends Fragment {
                 pbLoading.setVisibility(View.INVISIBLE);
             }
         });
+    }
+
+    private void userLogout() {
+        ParseUser.logOutInBackground(new LogOutCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, "Error logging out!", e);
+                    Toast.makeText(getContext(), "Error logging out!", Toast.LENGTH_SHORT).show();
+                }
+                Log.i(TAG, "Successfully logged out!");
+                Toast.makeText(getContext(), "Successfully logged out", Toast.LENGTH_SHORT).show();
+                goLoginActivity();
+            }
+        });
+        ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+    }
+
+    private void goLoginActivity() {
+        Intent i  = new Intent(getContext(), LoginActivity.class);
+        startActivity(i);
+        getActivity().finish();
     }
 }

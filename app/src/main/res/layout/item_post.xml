@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="18sp"
             tools:text="0 likes" />
 
     </LinearLayout>
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="18sp"
             tools:text="adrianab" />
 
         <TextView
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             tools:text="Pretty cool description!"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:layout_marginLeft="4dp" />
 
     </LinearLayout>
