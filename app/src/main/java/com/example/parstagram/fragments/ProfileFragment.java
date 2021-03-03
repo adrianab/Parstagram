@@ -66,7 +66,7 @@ public class ProfileFragment extends Fragment {
     ImageView ivProfilePicture;
     //TextView tvScreenName;
     TextView tvUserName;
-    TextView tvJoined;
+    //TextView tvJoined;
     RecyclerView rvUserPosts;
     Post post;
 
@@ -93,7 +93,7 @@ public class ProfileFragment extends Fragment {
         ivProfilePicture = view.findViewById(R.id.ivProfilePicture);
         //tvScreenName = view.findViewById(R.id.tvScreenName);
         tvUserName = view.findViewById(R.id.tvUsername);
-        tvJoined = view.findViewById(R.id.tvJoined);
+        //tvJoined = view.findViewById(R.id.tvJoined);
         rvUserPosts = view.findViewById(R.id.rvUserPosts);
 
         rvUserPosts.setAdapter(postsAdapter);
@@ -115,12 +115,12 @@ public class ProfileFragment extends Fragment {
 
         tvUserName.setText("@" + parseUser.getUsername());
 
-
+        /*
         String pattern = "E, dd MMMM yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(parseUser.getCreatedAt());
         tvJoined.setText(date);
-
+        */
 
         ParseFile userProfilePic = (ParseFile) parseUser.get(PROFILE_PICTURE);
         if(userProfilePic != null)
